@@ -1,0 +1,833 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap');
+
+:root {
+    --ink-black: #1a1a1a;
+    --paper-white: #fdfdfd;
+    --accent-gray: #757575;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--paper-white);
+    color: var(--ink-black);
+    line-height: 1.6;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Global: Navbar (used across all pages) */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(253, 253, 253, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Scrolled state applied by JS */
+header.scrolled {
+    background: rgba(253, 253, 253, 0.98);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+}
+
+header.scrolled .navbar {
+    padding: 0.5rem 8%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 8%;
+    transition: padding 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--ink-black);
+    margin-left: 30px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+.nav-links li a.active,
+.nav-links li a[aria-current="page"] {
+    font-weight: 600;
+    border-bottom: 2px solid var(--ink-black);
+    padding-bottom: 4px;
+}
+.nav-links li a:hover {
+    color: #111;
+    transform: translateY(-2px);
+}
+.nav-logo-img {
+    height: 36px; /* Slightly larger for better visibility */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease; /* Adds a nice little effect when you hover */
+}
+
+/* Optional: Add a hover effect to the logo */
+.logo:hover .nav-logo-img {
+    transform: rotate(-10px) scale(1.1);
+}
+
+/* Home: Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1500');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 { font-size: 6rem; letter-spacing: 5px; }
+.hero p { font-size: 1.2rem; margin-bottom: 30px; font-style: italic; }
+
+.btn {
+    padding: 15px 35px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: 0.4s;
+}
+
+.btn:hover { background: var(--ink-black); color: white; }
+
+/* Home: Mission Section */
+.mission {
+    padding: 100px 15%;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.mission h2 { font-size: 2.5rem; margin-bottom: 20px; }
+.mission p { font-size: 1.1rem; color: var(--accent-gray); max-width: 800px; margin: 0 auto; }
+
+/* Home: Featured Books Section (Curated Shelf) */
+.featured-books { padding: 100px 8%; }
+.section-header { text-align: center; margin-bottom: 50px; }
+.line { width: 50px; height: 3px; background: black; margin: 20px auto; }
+
+.book-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.card { transition: 0.4s; }
+.card img { width: 100%; height: 400px; object-fit: cover; border-radius: 4px; margin-bottom: 20px; }
+.card h3 { margin-bottom: 10px; }
+
+/* Home: Latest Opinion Section */
+.latest-opinion {
+    padding: 100px 8%;
+    background: var(--ink-black);
+    color: white;
+}
+
+.opinion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.opinion-image img { width: 100%; border-radius: 8px; }
+.tag { text-transform: uppercase; color: var(--accent-gray); letter-spacing: 2px; font-size: 0.8rem; }
+.opinion-text h2 { font-size: 3rem; margin: 20px 0; }
+.text-btn { color: white; text-decoration: none; border-bottom: 1px solid white; padding-bottom: 5px; }
+
+/* Home: Newsletter Section */
+.newsletter {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.subscribe-form { margin-top: 40px; display: flex; justify-content: center; }
+.subscribe-form input {
+    padding: 15px 20px;
+    width: 350px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.btn-alt {
+    padding: 15px 30px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Global: Footer (used across all pages) */
+footer {
+    padding: 50px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    font-size: 0.8rem;
+    color: var(--accent-gray);
+}
+
+/* Reveal Animation States */
+.reveal-init {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden { display: none; }
+#form-message { 
+    margin-top: 20px; 
+    font-weight: 600; 
+    color: #fff; 
+    transition: opacity 0.5s; 
+}
+
+
+
+
+
+
+/* Blog: Specific Styles and quote visuals */
+/* Handwritten font for blog quotes is included above in combined import */
+
+/* removed duplicate import (now combined at top) */
+
+.blog-hero {
+    min-height: 50vh; /* Changed from 'height' to 'min-height' to allow growth */
+    background-color: #fdfaf6; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px; /* Added padding to clear the fixed navbar */
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.quote-wrapper {
+    max-width: 800px;
+    position: relative;
+}
+
+@keyframes fadeInQuote {
+    from { opacity: 0; filter: blur(5px); }
+    to { opacity: 1; filter: blur(0); }
+}
+.quote-text {
+    animation: fadeInQuote 2s ease-in-out;
+    font-family: 'Dancing Script', cursive; /* Handwritten vibe */
+    font-size: 3.2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.quote-author {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* A subtle ink blot decoration */
+.ink-blot {
+    width: 60px;
+    height: 3px;
+    background: #000;
+    margin: 20px auto;
+    border-radius: 50%;
+    opacity: 0.2;
+}
+
+.community-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 10%;
+    background: #fff;
+}
+
+.blog-feed {
+    padding: 0 10% 100px;
+    display: grid;
+    gap: 30px;
+}
+
+/* Post Cards */
+.blog-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    transition: 0.3s ease;
+}
+
+.blog-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.post-actions {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #f9f9f9;
+    display: flex;
+    gap: 25px;
+}
+
+.action-item {
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.action-item:hover { color: #000; }
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+}
+
+.modal-content {
+    background: white;
+    width: 90%; max-width: 550px;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.modal-content input, .modal-content textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-publish {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* About: Page Specific Styles */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* More space for the text on the left */
+    min-height: 100vh;
+    background: #fdfdfd;
+}
+
+.about-text-side {
+    padding: 120px 10% 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.big-about-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    line-height: 1.1;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+.story-block h3 {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.story-block p {
+    font-size: 1.1rem;
+    color: #444;
+    max-width: 500px;
+}
+
+.contact-mini {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.contact-mini h4 { margin-bottom: 10px; }
+
+/* Visual Side with Storytelling Image */
+.about-visual-side {
+    background: url('/images/96172244-0e1c-4916-b31a-a1a58e8302e1.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Gentle tint */
+}
+
+.floating-quote {
+    position: relative;
+    z-index: 2;
+    background: white;
+    padding: 40px;
+    width: 80%;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Books: Page Specific Styles (Curated Shelf / Book details) */
+/* Books & Authors Detail Styles */
+.books-page-wrapper {
+    padding: 140px 10% 80px;
+    background-color: #fdfdfd;
+}
+
+.books-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.books-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.book-details-section {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Space between each book entry */
+}
+
+.book-entry {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.book-visual {
+    flex: 0 0 300px;
+}
+
+.book-visual img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.1);
+}
+
+.book-text {
+    flex: 1;
+    position: relative;
+    z-index: 2; /* Ensures text is above any background blur effects */
+}
+
+.category-tag {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.book-text h2 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+.author-name {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.summary-box {
+    margin-bottom: 25px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.review-highlight {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-left: 2px solid #000;
+}
+
+.stars {
+    color: #d4af37; /* Gold stars */
+    display: block;
+    margin-bottom: 5px;
+}
+
+.btn-action {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+.hero h1 { font-size: 4.8rem; letter-spacing: 4px; text-shadow: 0 6px 24px rgba(0,0,0,0.35); }
+.hero p { font-size: 1.05rem; margin-bottom: 28px; font-style: italic; }
+
+.btn {
+    padding: 14px 36px;
+    background: #ffffff;
+    color: var(--ink-black);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.86rem;
+    letter-spacing: 1.8px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease, color 220ms ease;
+}
+
+.btn:hover {
+    background: var(--ink-black);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+/* New Ink / refresh button styling */
+.btn-refresh {
+    margin-top: 18px;
+    padding: 10px 22px;
+    background: transparent;
+    border: 2px solid rgba(26,26,26,0.9);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+.btn-refresh:hover {
+    background: var(--ink-black);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Responsive hero scaling */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 3rem; }
+    .hero { padding-left: 20px; padding-right: 20px; }
+}
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-action:hover {
+    background: #333;
+    transform: translateY(-3px);
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .book-entry {
+        flex-direction: column;
+        text-align: center;
+    }
+    .book-visual {
+        flex: 0 0 auto;
+        width: 250px;
+        margin: 0 auto;
+    }
+}
+/* (Removed forced .reveal-init override so IntersectionObserver reveal works) */
+
+/* Ensure the Books Wrapper starts below the Navbar */
+
+
+/* Ensure the title is always visible and on top */
+.books-header {
+    position: relative;
+    z-index: 10;
+    background: transparent;
+}
+
+
+/* End of Book Page Specific Styles */
+
+/* Connect: Page Specific Styles (social & contact links) */
+/* Connect Page Styling */
+.connect-wrapper {
+    padding: 160px 10% 80px;
+    text-align: center;
+}
+
+.tagline-main {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5rem;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.sub-tagline {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 60px;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s ease;
+    text-align: left;
+}
+
+.social-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    border-color: #000;
+}
+
+.social-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.book-line {
+    font-style: italic;
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.social-link {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #000;
+    align-self: flex-start;
+    padding-bottom: 2px;
+}
+/* The Lively Ink Writing Effect */
+.ink-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 80px;
+    fill: transparent;           /* Start with no ink inside */
+    stroke: #1a1a1a;             /* The ink color */
+    stroke-width: 2;
+    stroke-dasharray: 1000;      /* Length of the "line" */
+    stroke-dashoffset: 1000;     /* Hide the line at the start */
+    animation: drawInk 4s ease-in-out forwards, fillInk 2s ease-in forwards 3s;
+}
+
+/* 1. Animation to draw the stroke */
+@keyframes drawInk {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* 2. Animation to fill the letters with ink once finished */
+@keyframes fillInk {
+    from { fill: transparent; }
+    to { fill: #1a1a1a; }
+}
+
+/* The Faded Sub-tagline (Same font, soft blur) */
+.faded-font {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #888;
+    opacity: 0;
+    filter: blur(4px);
+    margin-top: -20px;
+    animation: fadeAndUnblur 2.5s ease-out forwards;
+    animation-delay: 4.5s; /* Starts after the writing is done */
+}
+
+@keyframes fadeAndUnblur {
+    to {
+        opacity: 0.5; /* Stays faded */
+        filter: blur(0);
+        transform: translateY(5px);
+    }
+}
+
+
+
+/* Ink & Opinions: Page Styles (discussion and quote area) */
+/* Ink & Opinions Container */
+.opinions-container {
+    padding: 60px 10% 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.discussion-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.discussion-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Discussion Grid */
+.discussion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.discussion-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.discussion-card:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    border-color: #000;
+    transform: translateY(-5px);
+}
+
+.topic-meta {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.discussion-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.discussion-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Pushes footer to the bottom */
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f9f9f9;
+    padding-top: 15px;
+}
+
+.card-footer span {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.view-thread {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-bottom: 2px solid #000;
+}
+
+/* Button for New Ink */
+.btn-refresh {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: transparent;
+    border: 1.5px solid #1a1a1a;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-refresh:hover {
+    background: #1a1a1a;
+    color: #fff;
+}

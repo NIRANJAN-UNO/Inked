@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ink & Opinions - Inked</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://images.vexels.com/media/users/3/250873/isolated/preview/80db8ddd44cfae48a38af9a10cf19ee6-antique-ink-and-pen-american-icons-color-stroke.png" alt="Inked Logo" class="nav-logo-img">
+                Inked
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Book.html">Books & Authors</a></li>
+                <li><a href="Ink.html" class="active">Ink & Opinions</a></li>
+                <li><a href="blog.html">Blogs</a></li>
+                <li><a href="connect.html">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="blog-hero">
+        <div class="quote-wrapper">
+            <p id="random-quote" class="quote-text">"Click below to draw a new thought."</p>
+            <p id="random-author" class="quote-author">— Inked Sanctuary</p>
+            <button onclick="generateQuote()" class="btn-refresh">New Ink</button>
+        </div>
+    </section>
+
+    <main class="opinions-container">
+        <div class="discussion-header">
+            <h2>Community Discussions</h2>
+            <p>Share your perspective on our curated shelf or start a new topic.</p>
+        </div>
+
+        <div class="discussion-grid">
+            <article class="discussion-card">
+                <div class="topic-meta">Discussion • The Shadow of the Library</div>
+                <h3>What does the 'Silence' represent to you?</h3>
+                <p>A thread dedicated to Mr. Nobody's latest chapter. Is the silence a sanctuary or a cage?</p>
+                <div class="card-footer">
+                    <span>12 Opinions</span>
+                    <a href="#" class="view-thread">Join Conversation</a>
+                </div>
+            </article>
+
+            <article class="discussion-card">
+                <div class="topic-meta">General • Reading Habits</div>
+                <h3>Physical Books vs. Digital Souls</h3>
+                <p>Do you feel the same connection to a story when reading on a screen?</p>
+                <div class="card-footer">
+                    <span>45 Opinions</span>
+                    <a href="#" class="view-thread">Join Conversation</a>
+                </div>
+            </article>
+
+            <article class="discussion-card">
+                <div class="topic-meta">Discussion • Modern Voids</div>
+                <h3>The Digital Age of Poetry</h3>
+                <p>Reviewing Elena Thorne's perspective on modern monologues. Does it resonate?</p>
+                <div class="card-footer">
+                    <span>8 Opinions</span>
+                    <a href="#" class="view-thread">Join Conversation</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

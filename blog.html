@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inked - Blogs & Stories</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://images.vexels.com/media/users/3/250873/isolated/preview/80db8ddd44cfae48a38af9a10cf19ee6-antique-ink-and-pen-american-icons-color-stroke.png" alt="Inked Logo" class="nav-logo-img">
+                Inked
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Book.html">Books & Authors</a></li>
+                <li><a href="Ink.html">Ink & Opinions</a></li>
+                <li><a href="blog.html">Blogs</a></li>
+                <li><a href="connect.html">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="blog-hero">
+    <div class="quote-wrapper">
+        <h1 class="quote-text" id="random-quote">"Fill your paper with the breathings of your heart."</h1>
+        <p class="quote-author" id="random-author">— William Wordsworth</p>
+        <div class="ink-blot"></div>
+    </div>
+</section>
+
+    <div class="community-bar">
+        <h2>Community Stories</h2>
+        <button class="btn-write" id="openEditor">Write Your Story +</button>
+    </div>
+
+    <main class="blog-feed" id="blogFeed">
+        </main>
+
+    <div class="modal" id="blogModal">
+        <div class="modal-content">
+            <h3>Ink Your Thoughts</h3>
+            <input type="text" id="postTitle" placeholder="Give your story a title...">
+            <textarea id="postContent" placeholder="What's on your mind?"></textarea>
+            <div class="modal-actions">
+                <button class="btn-secondary" id="closeEditor">Cancel</button>
+                <button class="btn-publish" id="publishBtn">Publish to Feed</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Inked. Built for the curious mind.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
