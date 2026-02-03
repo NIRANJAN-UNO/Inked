@@ -1,0 +1,26 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Node
+node_modules/
+
+# Env
+.env
+.env.local
+
+# Logs
+*.log
+.cache/
+
+# Archives
+*.zip
+
+# Mac-specific
+.Spotlight-V100
