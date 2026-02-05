@@ -46,11 +46,22 @@
         <div class="modal-content">
             <h3>Ink Your Thoughts</h3>
             <input type="text" id="postTitle" placeholder="Give your story a title...">
+            <input type="text" id="postAuthor" placeholder="Author (optional)">
             <textarea id="postContent" placeholder="What's on your mind?"></textarea>
             <div class="modal-actions">
                 <button class="btn-secondary" id="closeEditor">Cancel</button>
                 <button class="btn-publish" id="publishBtn">Publish to Feed</button>
             </div>
+        </div>
+    </div>
+
+    <!-- View Post Modal (read-only) -->
+    <div class="modal" id="viewPostModal">
+        <div class="modal-content">
+            <button id="closeViewPost" class="modal-close" aria-label="Close">×</button>
+            <h3 id="viewTitle">Post Title</h3>
+            <div id="viewMeta" class="post-meta" style="color:#666;margin-bottom:12px;font-size:0.9rem"></div>
+            <div id="viewBody" class="post-body"></div>
         </div>
     </div>
     <footer>

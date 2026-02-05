@@ -6,6 +6,13 @@
     <title>Ink & Opinions - Inked</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* Minimal modal styling for New Ink editor */
+        .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);align-items:center;justify-content:center;z-index:60}
+        .modal-content{background:#fff;padding:1.25rem;border-radius:8px;max-width:640px;width:94%;box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+        .modal-content input,.modal-content textarea{width:100%;padding:0.6rem;margin:0.5rem 0;border:1px solid #ddd;border-radius:4px;font-family:inherit}
+        .modal-close{background:none;border:0;font-size:1.4rem;position:absolute;right:1rem;top:0.6rem;cursor:pointer}
+    </style>
 </head>
 <body>
 
@@ -30,7 +37,7 @@
         <div class="quote-wrapper">
             <p id="random-quote" class="quote-text">"Click below to draw a new thought."</p>
             <p id="random-author" class="quote-author">— Inked Sanctuary</p>
-            <button onclick="generateQuote()" class="btn-refresh">New Ink</button>
+            <button onclick="generateQuote()" class="btn-refresh">Share Thought</button>
         </div>
     </section>
 
@@ -40,7 +47,7 @@
             <p>Share your perspective on our curated shelf or start a new topic.</p>
         </div>
 
-        <div class="discussion-grid">
+        <div id="discussion-grid" class="discussion-grid">
             <article class="discussion-card">
                 <div class="topic-meta">Discussion • The Shadow of the Library</div>
                 <h3>What does the 'Silence' represent to you?</h3>
@@ -72,6 +79,21 @@
             </article>
         </div>
     </main>
+
+    <!-- New Ink Modal -->
+    <div id="new-ink-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="new-ink-title">
+            <button id="close-ink-modal" class="modal-close" aria-label="Close">×</button>
+            <h3 id="new-ink-title">Share Your Thought</h3>
+            <input id="ink-title" type="text" placeholder="Title (optional)">
+            <input id="ink-book" type="text" placeholder="Book Title (optional)">
+            <input id="ink-author" type="text" placeholder="Author (optional)">
+            <textarea id="ink-body" placeholder="Share your thought..." rows="8"></textarea>
+            <div style="text-align:right;margin-top:0.5rem">
+                <button id="submit-ink" class="btn">Post</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -32,53 +32,106 @@
             <p class="reveal-init">A collection of voices that challenge, inspire, and stay "Inked" in our memory.</p>
         </header>
 
+        <!-- Search box: centered, spans under the page header -->
+        <div class="search-area">
+            <div class="search-box">
+                <input id="book-search" type="search" placeholder="Search books or authors...">
+                <button id="clear-search" class="btn-small">Clear</button>
+            </div>
+            <p id="search-hint" class="search-hint">Search the curated shelf by title, author or a famous line.</p>
+        </div>
+
         <section class="book-details-section">
-            
-            <article class="book-entry">
-                <div class="book-visual">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=600" alt="The Shadow of the Library">
-                </div>
-                <div class="book-text">
-                    <span class="category-tag">Classic Echoes</span>
-                    <h2>The Shadow of the Library</h2>
-                    <p class="author-name">By Mr. Nobody</p>
-                    
-                    <div class="summary-box">
-                        <p>A deep dive into the echoes of 19th-century prose and the silent observers that dwell within old archives. This book explores the weight of forgotten words.</p>
+            <div class="shelf-categories">
+                <div class="category">
+                    <h3>Novels</h3>
+                    <div class="book-cards">
+                        <div class="card" data-title="Classic Echoes" data-author="A. Writer" data-excerpt="'It was the hush before the storms of feeling...'" data-firstpage="First page of Classic Echoes... (sample text)">
+                            <div class="img-container">
+                                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=600" alt="Classic Echoes">
+                            </div>
+                            <h4>Classic Echoes</h4>
+                            <p class="book-excerpt">'It was the hush before the storms of feeling...' — A. Writer</p>
+                            <div class="card-actions">
+                                <button class="btn-small view-first">View First Page</button>
+                                <a class="btn-small" href="Ink.html?book=Classic%20Echoes&author=A.%20Writer">Share Thought</a>
+                            </div>
+                        </div>
+
+                        <div class="card" data-title="The Ink Trail" data-author="E. Teller" data-excerpt="'The trail of ink leads where the mind dares...'" data-firstpage="First page of The Ink Trail... (sample text)">
+                            <div class="img-container">
+                                <img src="https://images.unsplash.com/photo-1474932430478-367dbb6832c1?q=80&w=600" alt="The Ink Trail">
+                            </div>
+                            <h4>The Ink Trail</h4>
+                            <p class="book-excerpt">'The trail of ink leads where the mind dares...' — E. Teller</p>
+                            <div class="card-actions">
+                                <button class="btn-small view-first">View First Page</button>
+                                <a class="btn-small" href="Ink.html?book=The%20Ink%20Trail&author=E.%20Teller">Share Thought</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="review-highlight">
-                        <span class="stars">★★★★★</span>
-                        <p>"A hauntingly beautiful reflection on what we choose to remember." — <em>Inked Monthly</em></p>
-                    </div>
-
-                    <a href="Ink.html?book=Shadow-Library" class="btn-action">Join the Discussion</a>
                 </div>
-            </article>
 
-            <article class="book-entry">
-                <div class="book-visual">
-                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=600" alt="Modern Voids">
-                </div>
-                <div class="book-text">
-                    <span class="category-tag">Modern Thought</span>
-                    <h2>Modern Voids</h2>
-                    <p class="author-name">By Elena Thorne</p>
-                    
-                    <div class="summary-box">
-                        <p>Exploring the silence between the words of modern poets. Thorne examines how the digital age has reshaped our inner monologues.</p>
+                <div class="category">
+                    <h3>Short Stories</h3>
+                    <div class="book-cards">
+                        <div class="card" data-title="Modern Voids" data-author="L. Poet" data-excerpt="'Between two breaths, the city listens...'" data-firstpage="First page of Modern Voids... (sample text)">
+                            <div class="img-container">
+                                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=600" alt="Modern Voids">
+                            </div>
+                            <h4>Modern Voids</h4>
+                            <p class="book-excerpt">'Between two breaths, the city listens...' — L. Poet</p>
+                            <div class="card-actions">
+                                <button class="btn-small view-first">View First Page</button>
+                                <a class="btn-small" href="Ink.html?book=Modern%20Voids&author=L.%20Poet">Share Thought</a>
+                            </div>
+                        </div>
+
+                        <div class="card" data-title="Tiny Lanterns" data-author="M. Short" data-excerpt="'A lantern for a pocket-sized sorrow...'" data-firstpage="First page of Tiny Lanterns... (sample text)">
+                            <div class="img-container">
+                                <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=600" alt="Tiny Lanterns">
+                            </div>
+                            <h4>Tiny Lanterns</h4>
+                            <p class="book-excerpt">'A lantern for a pocket-sized sorrow...' — M. Short</p>
+                            <div class="card-actions">
+                                <button class="btn-small view-first">View First Page</button>
+                                <a class="btn-small" href="Ink.html?book=Tiny%20Lanterns&author=M.%20Short">Share Thought</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="review-highlight">
-                        <span class="stars">★★★★☆</span>
-                        <p>"A sharp, necessary critique of our fast-paced communication." — <em>The Literary Post</em></p>
-                    </div>
-
-                    <a href="Ink.html?book=Modern-Voids" class="btn-action">View Opinions</a>
                 </div>
-            </article>
+
+                <div class="category">
+                    <h3>Poetry</h3>
+                    <div class="book-cards">
+                        <div class="card" data-title="Silent Measures" data-author="P. Lyric" data-excerpt="'Measure the silence, it answers in verse...'" data-firstpage="First page of Silent Measures... (sample text)">
+                            <div class="img-container">
+                                <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=600" alt="Silent Measures">
+                            </div>
+                            <h4>Silent Measures</h4>
+                            <p class="book-excerpt">'Measure the silence, it answers in verse...' — P. Lyric</p>
+                            <div class="card-actions">
+                                <button class="btn-small view-first">View First Page</button>
+                                <a class="btn-small" href="Ink.html?book=Silent%20Measures&author=P.%20Lyric">Share Thought</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- First Page Modal -->
+            <div id="first-page-modal" class="modal" aria-hidden="true">
+                <div class="modal-content">
+                    <button id="close-first-page" class="modal-close" aria-label="Close">×</button>
+                    <h3 id="first-page-title">First Page</h3>
+                    <div id="first-page-author" class="post-meta"></div>
+                    <div id="first-page-body" class="post-body"></div>
+                </div>
+            </div>
 
         </section>
+
+        
     </main>
 
     <footer>
